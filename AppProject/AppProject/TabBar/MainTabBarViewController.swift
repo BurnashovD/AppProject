@@ -40,5 +40,4 @@ final class MainTabBarViewController: UITabBarController {
         
         viewControllers = [buyVC, forMeVC, navigationController, cartVC]
     }
-    
 }
