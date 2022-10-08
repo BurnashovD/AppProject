@@ -46,28 +46,31 @@ final class SearchViewController: UIViewController {
     
     private lazy var macCaseView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 20, y: 230, width: 120, height: 150)
+        view.frame = CGRect(x: 20, y: 10, width: 120, height: 170)
         view.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1.00)
         view.layer.cornerRadius = 10
-        view.tag = 0
+        view.addSubview(blackCaseImageView)
+        view.addSubview(blackCaseNameLabel)
         return view
     }()
     
     private lazy var watchCaseView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 160, y: 230, width: 120, height: 150)
+        view.frame = CGRect(x: 160, y: 10, width: 120, height: 170)
         view.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1.00)
         view.layer.cornerRadius = 10
-        view.tag = 1
+        view.addSubview(watchNameLabel)
+        view.addSubview(watchImageView)
         return view
     }()
     
     private lazy var brownCaseView: UIView = {
-        let view = UIImageView()
-        view.frame = CGRect(x: 300, y: 230, width: 120, height: 150)
+        let view = UIView()
+        view.frame = CGRect(x: 300, y: 10, width: 120, height: 170)
         view.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1.00)
         view.layer.cornerRadius = 10
-        view.tag = 2
+        view.addSubview(brownCaseLabel)
+        view.addSubview(brownCaseImageView)
         return view
     }()
     
@@ -118,7 +121,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var blackCaseNameLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 25, y: 270, width: 120, height: 150)
+        label.frame = CGRect(x: 7, y: 65, width: 120, height: 150)
         label.text = Constants.blackCaseNameText
         label.numberOfLines = 3
         label.lineBreakMode = .byWordWrapping
@@ -129,7 +132,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var watchNameLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 165, y: 270, width: 120, height: 150)
+        label.frame = CGRect(x: 7, y: 65, width: 120, height: 150)
         label.text = Constants.watchNameText
         label.numberOfLines = 3
         label.lineBreakMode = .byWordWrapping
@@ -140,7 +143,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var brownCaseLabel: UILabel = {
         let label = UILabel()
-        label.frame = CGRect(x: 305, y: 270, width: 120, height: 150)
+        label.frame = CGRect(x: 7, y: 65, width: 120, height: 150)
         label.text = Constants.brownCaseText
         label.numberOfLines = 3
         label.lineBreakMode = .byWordWrapping
@@ -151,28 +154,42 @@ final class SearchViewController: UIViewController {
     
     private lazy var blackCaseImageView: UIImageView = {
         let image = UIImageView()
-        image.frame = CGRect(x: 35, y: 245, width: 90, height: 70)
-        image.image = UIImage(named: Constants.blackCaseImage)
+        image.frame = CGRect(x: 15, y: 15, width: 90, height: 70)
+        image.image = UIImage(named: Constants.blackCaseImage[0])
         return image
     }()
     
     private lazy var watchImageView: UIImageView = {
         let image = UIImageView()
-        image.frame = CGRect(x: 187, y: 245, width: 60, height: 70)
-        image.image = UIImage(named: Constants.watchImage)
+        image.frame = CGRect(x: 28, y: 15, width: 60, height: 80)
+        image.image = UIImage(named: Constants.watchImage[0])
         return image
     }()
     
     private lazy var brownCaseImageView: UIImageView = {
         let image = UIImageView()
-        image.frame = CGRect(x: 320, y: 230, width: 100, height: 100)
-        image.image = UIImage(named: Constants.brownCaseImage)
+        image.frame = CGRect(x: 10, y: 0, width: 100, height: 100)
+        image.image = UIImage(named: Constants.brownCaseImage[2])
         return image
     }()
+    
+    private lazy var productsScrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.frame = CGRect(x: 0, y: 230, width: view.bounds.width, height: 180)
+        scroll.contentSize = CGSize(width: view.bounds.width + 80, height: 180)
+        scroll.addSubview(macCaseView)
+        scroll.addSubview(watchCaseView)
+        scroll.addSubview(brownCaseView)
+        return scroll
+    }()
+    
     // MARK: - Private properties
-    private lazy var tapBlack = UITapGestureRecognizer(target: self, action: #selector(goToBlackCaseVCAction))
-    private lazy var tapWatch = UITapGestureRecognizer(target: self, action: #selector(goToWatchVCAction))
-    private lazy var tapBrown = UITapGestureRecognizer(target: self, action: #selector(goToBrownCaseVCAction))
+    private lazy var tapBlack = UITapGestureRecognizer(target: self,
+                                                       action: #selector(goToBlackCaseVCAction))
+    private lazy var tapWatch = UITapGestureRecognizer(target: self,
+                                                       action: #selector(goToWatchVCAction))
+    private lazy var tapBrown = UITapGestureRecognizer(target: self,
+                                                       action: #selector(goToBrownCaseVCAction))
     private let searchController = UISearchController(searchResultsController: nil)
 
     // MARK: - LifeCycle
@@ -187,20 +204,12 @@ final class SearchViewController: UIViewController {
         view.addSubview(searchLabel)
         view.addSubview(recentlyCheckedLabel)
         view.addSubview(clearSearchButton)
-        view.addSubview(macCaseView)
-        view.addSubview(watchCaseView)
-        view.addSubview(brownCaseView)
         view.addSubview(searchVariantsLabel)
         view.addSubview(airPodsLabel)
         view.addSubview(appleCareLabel)
         view.addSubview(beatsLabel)
         view.addSubview(iphoneLabel)
-        view.addSubview(blackCaseNameLabel)
-        view.addSubview(watchNameLabel)
-        view.addSubview(brownCaseLabel)
-        view.addSubview(blackCaseImageView)
-        view.addSubview(watchImageView)
-        view.addSubview(brownCaseImageView)
+        view.addSubview(productsScrollView)
         navigationItem.searchController = searchController
         searchController.searchBar.placeholder = "Поиск по продуктам и магазинам"
         macCaseView.addGestureRecognizer(tapBlack)
@@ -212,6 +221,7 @@ final class SearchViewController: UIViewController {
         let chosenItemVC = ChosenItemViewController()
         chosenItemVC.productName = Constants.blackCaseNameText
         chosenItemVC.productImageName = Constants.blackCaseImage
+        chosenItemVC.productPrice = Constants.blackCasePrice
         navigationController?.pushViewController(chosenItemVC, animated: false)
     }
     
@@ -219,6 +229,7 @@ final class SearchViewController: UIViewController {
         let chosenItemVC = ChosenItemViewController()
         chosenItemVC.productName = Constants.watchNameText
         chosenItemVC.productImageName = Constants.watchImage
+        chosenItemVC.productPrice = Constants.watchCasePrice
         navigationController?.pushViewController(chosenItemVC, animated: false)
     }
     
@@ -226,6 +237,7 @@ final class SearchViewController: UIViewController {
         let chosenItemVC = ChosenItemViewController()
         chosenItemVC.productName = Constants.brownCaseText
         chosenItemVC.productImageName = Constants.brownCaseImage
+        chosenItemVC.productPrice = Constants.brownCasePrice
         navigationController?.pushViewController(chosenItemVC, animated: false)
     }
 }
@@ -243,8 +255,11 @@ extension SearchViewController {
         static let blackCaseNameText = "Чехол Incase Flat для MacBook Pro 16 дюймов"
         static let watchNameText = "Спортивный ремешок Black Unity"
         static let brownCaseText = "Кожаный чехол для MacBook Pro 16 дюймов"
-        static let blackCaseImage = "blackCase"
-        static let watchImage = "watchCase"
-        static let brownCaseImage = "brownCase"
+        static let blackCaseImage = ["blackCase", "blackCase2", "blackCase3"]
+        static let watchImage = ["watchCase", "watchCase2"]
+        static let brownCaseImage = ["brownCase3", "brownCase2", "brownCase"]
+        static let blackCasePrice = "3.990.00 руб"
+        static let watchCasePrice = "1.111.11 руб"
+        static let brownCasePrice = "4.444.00 руб"
     }
 }

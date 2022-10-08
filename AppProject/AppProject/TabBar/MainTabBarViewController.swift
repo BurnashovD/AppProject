@@ -23,17 +23,17 @@ final class MainTabBarViewController: UITabBarController {
         let forMeVC = ForMeViewController()
         let cartVC = CartViewController()
         
-        buyVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1.00)
+        buyVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 0.80)
         buyVC.tabBarItem = UITabBarItem(title: "Купить", image: UIImage(systemName: "laptopcomputer.and.iphone"), tag: 2)
         
         searchVC.tabBarItem = UITabBarItem(title: "Поиск", image: UIImage(systemName: "magnifyingglass"), tag: 0)
-        searchVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.07, green: 0.07, blue: 0.07, alpha: 1.00)
+        searchVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 0.80)
         
         forMeVC.tabBarItem = UITabBarItem(title: "Для Вас", image: UIImage(systemName: "person.circle"), tag: 1)
-        forMeVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1.00)
+        forMeVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 0.80)
         
         cartVC.title = "Коризна"
-        cartVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 1.00)
+        cartVC.tabBarController?.tabBar.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 0.80)
         cartVC.tabBarItem = UITabBarItem(title: "Для Вас", image: UIImage(systemName: "bag"), tag: 1)
         
         let navigationController = UINavigationController(rootViewController: searchVC)
