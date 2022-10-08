@@ -10,11 +10,13 @@ import UIKit
 // Класс конфигуратор для TabBar
 final class MainTabBarViewController: UITabBarController {
 
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configTabBarController()
     }
     
+    // MARK: - Private methods
     private func configTabBarController() {
         let buyVC = BuyViewController()
         let searchVC = SearchViewController()
