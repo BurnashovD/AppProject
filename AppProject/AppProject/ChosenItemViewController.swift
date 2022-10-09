@@ -51,7 +51,7 @@ final class ChosenItemViewController: UIViewController {
         scroll.contentMode = .scaleAspectFit
         scroll.isPagingEnabled = true
         scroll.indicatorStyle = .white
-        scroll.showsHorizontalScrollIndicator = false
+        scroll.showsHorizontalScrollIndicator = true
         scroll.addSubview(firstImageView)
         scroll.addSubview(secondImageView)
         scroll.addSubview(thirdImageView)
@@ -157,10 +157,24 @@ final class ChosenItemViewController: UIViewController {
         return image
     }()
     
+    private lazy var howMuchTextField: UITextField = {
+        let field = UITextField()
+        field.frame = CGRect(x: 0, y: 0, width: 180, height: 20)
+        field.center = CGPoint(x: view.center.x, y: 610)
+        field.placeholder = Constants.howMuchPlaceholderText
+        field.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        field.textColor = .white
+        field.attributedPlaceholder = NSAttributedString(string: Constants.howMuchPlaceholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray2])
+        field.textAlignment = .center
+        return field
+    }()
+    
     // MARK: - Public properties
     var productName = ""
     var productImageName = [String]()
     var productPrice = ""
+    private let countPickerView = UIPickerView()
+    private let howMuchProductsNumbers = Array(1...12)
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -184,6 +198,10 @@ final class ChosenItemViewController: UIViewController {
         view.addSubview(deliverDateLabel)
         view.addSubview(deliverVariantsLabel)
         view.addSubview(boxDeliveryImageView)
+        view.addSubview(howMuchTextField)
+        countPickerView.dataSource = self
+        countPickerView.delegate = self
+        howMuchTextField.inputView = countPickerView
     }
     
     private func addProductImagesOnScroll() {
@@ -226,5 +244,31 @@ final class ChosenItemViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: [productName],
                                                   applicationActivities: nil)
         present(activityVC, animated: true)
+    }
+}
+
+extension ChosenItemViewController {
+    enum Constants {
+        static let howMuchPlaceholderText = "Укажите количество"
+    }
+}
+
+// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
+extension ChosenItemViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return howMuchProductsNumbers.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(howMuchProductsNumbers[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        howMuchTextField.text = String(howMuchProductsNumbers[row]) + " " + "шт."
+        howMuchTextField.resignFirstResponder()
     }
 }

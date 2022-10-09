@@ -87,7 +87,7 @@ final class SearchViewController: UIViewController {
         let label = UIButton()
         label.frame = CGRect(x: 10, y: 480, width: 150, height: 30)
         label.setTitle(Constants.airPodsText, for: .normal)
-        label.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        label.setImage(UIImage(systemName: Constants.magnifyImageName), for: .normal)
         label.tintColor = .gray
         return label
     }()
@@ -96,7 +96,7 @@ final class SearchViewController: UIViewController {
         let label = UIButton()
         label.frame = CGRect(x: 20, y: 530, width: 150, height: 30)
         label.setTitle(Constants.appleCareText, for: .normal)
-        label.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        label.setImage(UIImage(systemName: Constants.magnifyImageName), for: .normal)
         label.tintColor = .gray
         return label
     }()
@@ -105,7 +105,7 @@ final class SearchViewController: UIViewController {
         let label = UIButton()
         label.frame = CGRect(x: 2, y: 580, width: 150, height: 30)
         label.setTitle(Constants.beatsText, for: .normal)
-        label.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        label.setImage(UIImage(systemName: Constants.magnifyImageName), for: .normal)
         label.tintColor = .gray
         return label
     }()
@@ -114,7 +114,7 @@ final class SearchViewController: UIViewController {
         let label = UIButton()
         label.frame = CGRect(x: 35, y: 630, width: 250, height: 30)
         label.setTitle(Constants.iphoneText, for: .normal)
-        label.setImage(UIImage(systemName: "magnifyingglass"), for: .normal)
+        label.setImage(UIImage(systemName: Constants.magnifyImageName), for: .normal)
         label.tintColor = .gray
         return label
     }()
@@ -177,6 +177,7 @@ final class SearchViewController: UIViewController {
         let scroll = UIScrollView()
         scroll.frame = CGRect(x: 0, y: 230, width: view.bounds.width, height: 180)
         scroll.contentSize = CGSize(width: view.bounds.width + 80, height: 180)
+        scroll.showsHorizontalScrollIndicator = false
         scroll.addSubview(macCaseView)
         scroll.addSubview(watchCaseView)
         scroll.addSubview(brownCaseView)
@@ -211,7 +212,7 @@ final class SearchViewController: UIViewController {
         view.addSubview(iphoneLabel)
         view.addSubview(productsScrollView)
         navigationItem.searchController = searchController
-        searchController.searchBar.placeholder = "Поиск по продуктам и магазинам"
+        searchController.searchBar.placeholder = Constants.searchBarPlaceholderText
         macCaseView.addGestureRecognizer(tapBlack)
         watchCaseView.addGestureRecognizer(tapWatch)
         brownCaseView.addGestureRecognizer(tapBrown)
@@ -261,5 +262,7 @@ extension SearchViewController {
         static let blackCasePrice = "3.990.00 руб"
         static let watchCasePrice = "1.111.11 руб"
         static let brownCasePrice = "4.444.00 руб"
+        static let searchBarPlaceholderText = "Поиск по продуктам и магазинам"
+        static let magnifyImageName = "magnifyingglass"
     }
 }
