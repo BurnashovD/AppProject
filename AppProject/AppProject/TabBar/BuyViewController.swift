@@ -13,7 +13,7 @@ final class BuyViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       configUI()
+        configUI()
     }
     
     // MARK: - Private methods

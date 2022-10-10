@@ -163,17 +163,21 @@ final class ChosenItemViewController: UIViewController {
         field.placeholder = Constants.howMuchPlaceholderText
         field.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         field.textColor = .white
-        field.attributedPlaceholder = NSAttributedString(string: Constants.howMuchPlaceholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray2])
+        field.attributedPlaceholder = NSAttributedString(string: Constants.howMuchPlaceholderText,
+                                                         attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGray2])
         field.textAlignment = .center
         return field
     }()
     
     // MARK: - Public properties
     var productName = ""
-    var productImageName = [String]()
+    var productImageNames = [String]()
     var productPrice = ""
+    var productURL = ""
+    
     private let countPickerView = UIPickerView()
     private let howMuchProductsNumbers = Array(1...12)
+    private lazy var goToProductWebPage = UITapGestureRecognizer(target: self, action: #selector(openProductWebVC))
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -198,24 +202,25 @@ final class ChosenItemViewController: UIViewController {
         view.addSubview(deliverVariantsLabel)
         view.addSubview(boxDeliveryImageView)
         view.addSubview(howMuchTextField)
+        chooseProductColorGrayButton.addGestureRecognizer(goToProductWebPage)
         countPickerView.dataSource = self
         countPickerView.delegate = self
         howMuchTextField.inputView = countPickerView
     }
     
     private func addProductImagesOnScroll() {
-        if productImageName.count > 2 {
-            let firstImage = UIImage(named: productImageName[0])
-            let secondImage = UIImage(named: productImageName[1])
-            let thirdImage = UIImage(named: productImageName[2])
+        if productImageNames.count > 2 {
+            let firstImage = UIImage(named: productImageNames[0])
+            let secondImage = UIImage(named: productImageNames[1])
+            let thirdImage = UIImage(named: productImageNames[2])
             
             guard let image = firstImage, let secImage = secondImage, let trdImage = thirdImage else { return }
             firstImageView.image = image
             secondImageView.image = secImage
             thirdImageView.image = trdImage
         } else {
-            let firstImage = UIImage(named: productImageName[0])
-            let secondImage = UIImage(named: productImageName[1])
+            let firstImage = UIImage(named: productImageNames[0])
+            let secondImage = UIImage(named: productImageNames[1])
             imagesScrollView.contentSize = CGSize(width: view.bounds.width * 2, height: 200)
             
             guard let image = firstImage, let secImage = secondImage else { return }
@@ -243,6 +248,11 @@ final class ChosenItemViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: [productName],
                                                   applicationActivities: nil)
         present(activityVC, animated: true)
+    }
+    
+    @objc private func openProductWebVC() {
+        let productWebVC = ProductWebPageViewController()
+        present(productWebVC, animated: true)
     }
 }
 

@@ -38,7 +38,7 @@ final class SearchViewController: UIViewController {
         return button
     }()
     
-    private lazy var searchControl: UISearchController = {
+    private lazy var searchControll: UISearchController = {
         let search = UISearchController()
         search.searchBar.frame = CGRect(x: 50, y: 50, width: 200, height: 40)
         return search
@@ -185,11 +185,11 @@ final class SearchViewController: UIViewController {
     }()
     
     // MARK: - Private properties
-    private lazy var tapBlack = UITapGestureRecognizer(target: self,
+    private lazy var blackTapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action: #selector(goToBlackCaseVCAction))
-    private lazy var tapWatch = UITapGestureRecognizer(target: self,
+    private lazy var wathcTapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action: #selector(goToWatchVCAction))
-    private lazy var tapBrown = UITapGestureRecognizer(target: self,
+    private lazy var brownTapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                        action: #selector(goToBrownCaseVCAction))
     private let searchController = UISearchController(searchResultsController: nil)
 
@@ -213,32 +213,35 @@ final class SearchViewController: UIViewController {
         view.addSubview(productsScrollView)
         navigationItem.searchController = searchController
         searchController.searchBar.placeholder = Constants.searchBarPlaceholderText
-        macCaseView.addGestureRecognizer(tapBlack)
-        watchCaseView.addGestureRecognizer(tapWatch)
-        brownCaseView.addGestureRecognizer(tapBrown)
+        macCaseView.addGestureRecognizer(blackTapGestureRecognizer)
+        watchCaseView.addGestureRecognizer(wathcTapGestureRecognizer)
+        brownCaseView.addGestureRecognizer(brownTapGestureRecognizer)
     }
     
     @objc private func goToBlackCaseVCAction() {
         let chosenItemVC = ChosenItemViewController()
         chosenItemVC.productName = Constants.blackCaseNameText
-        chosenItemVC.productImageName = Constants.blackCaseImage
+        chosenItemVC.productImageNames = Constants.blackCaseImage
         chosenItemVC.productPrice = Constants.blackCasePrice
+        chosenItemVC.productURL = Constants.blackCaseURL
         navigationController?.pushViewController(chosenItemVC, animated: false)
     }
     
     @objc private func goToWatchVCAction() {
         let chosenItemVC = ChosenItemViewController()
         chosenItemVC.productName = Constants.watchNameText
-        chosenItemVC.productImageName = Constants.watchImage
+        chosenItemVC.productImageNames = Constants.watchImage
         chosenItemVC.productPrice = Constants.watchCasePrice
+        chosenItemVC.productURL = Constants.watchURL
         navigationController?.pushViewController(chosenItemVC, animated: false)
     }
     
     @objc private func goToBrownCaseVCAction() {
         let chosenItemVC = ChosenItemViewController()
         chosenItemVC.productName = Constants.brownCaseText
-        chosenItemVC.productImageName = Constants.brownCaseImage
+        chosenItemVC.productImageNames = Constants.brownCaseImage
         chosenItemVC.productPrice = Constants.brownCasePrice
+        chosenItemVC.productURL = Constants.brownCaseURL
         navigationController?.pushViewController(chosenItemVC, animated: false)
     }
 }
@@ -264,5 +267,8 @@ extension SearchViewController {
         static let brownCasePrice = "4.444.00 руб"
         static let searchBarPlaceholderText = "Поиск по продуктам и магазинам"
         static let magnifyImageName = "magnifyingglass"
+        static let blackCaseURL = "https://re-store.ru/catalog/DFENDER-13MBP-BLACK/"
+        static let watchURL = "https://re-store.ru/catalog/MFAWSSL38RED/"
+        static let brownCaseURL = "https://re-store.ru/catalog/NM7MDT0M00/"
     }
 }
