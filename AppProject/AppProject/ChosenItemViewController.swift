@@ -101,10 +101,9 @@ final class ChosenItemViewController: UIViewController {
     
     private lazy var deviceConnectionLabel: UILabel = {
         let label = UILabel()
-        let text1 = "Совместимо с MacBook Pro - Евгений"
         label.frame = CGRect(x: 0, y: 0, width: 220, height: 20)
         label.center = CGPoint(x: view.center.x, y: 570)
-        label.text = text1
+        label.text = Constants.deviceConnectionText
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 9, weight: .medium)
         label.textColor = .systemGray2
@@ -115,7 +114,7 @@ final class ChosenItemViewController: UIViewController {
         let button = UIButton()
         button.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 30, height: 45)
         button.center = CGPoint(x: view.center.x, y: 660)
-        button.setTitle("Добавить в корзину", for: .normal)
+        button.setTitle(Constants.addToCartText, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.backgroundColor = UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 0.90)
         button.layer.cornerRadius = 10
@@ -125,7 +124,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var deliverLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 40, y: 710, width: 250, height: 10)
-        label.text = "Заказ сегодня в течении дня, доставка:"
+        label.text = Constants.deliveryText
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         label.textColor = .white
         return label
@@ -134,7 +133,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var deliverDateLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 40, y: 725, width: 250, height: 10)
-        label.text = "Чт 25 Фев - Бесплатно"
+        label.text = Constants.delivaryDateText
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .systemGray2
         return label
@@ -143,7 +142,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var deliverVariantsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 40, y: 740, width: 350, height: 10)
-        label.text = "Варианты доставки для месторасположения: 115533"
+        label.text = Constants.deliveryVariantsText
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .link
         return label
@@ -151,7 +150,7 @@ final class ChosenItemViewController: UIViewController {
     
     private lazy var boxDeliveryImageView: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(systemName: "shippingbox.fill")
+        image.image = UIImage(systemName: Constants.sistemBoxImageName)
         image.frame = CGRect(x: 10, y: 710, width: 20, height: 20)
         image.tintColor = .gray
         return image
@@ -250,6 +249,12 @@ final class ChosenItemViewController: UIViewController {
 extension ChosenItemViewController {
     enum Constants {
         static let howMuchPlaceholderText = "Укажите количество"
+        static let deviceConnectionText = "Совместимо с MacBook Pro - Евгений"
+        static let addToCartText = "Добавить в корзину"
+        static let deliveryText = "Заказ сегодня в течении дня, доставка:"
+        static let delivaryDateText = "Чт 25 Фев - Бесплатно"
+        static let deliveryVariantsText = "Варианты доставки для месторасположения: 115533"
+        static let sistemBoxImageName = "shippingbox.fill"
     }
 }
 
