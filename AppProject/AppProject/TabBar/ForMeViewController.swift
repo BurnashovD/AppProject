@@ -18,6 +18,6 @@ final class ForMeViewController: UIViewController {
     
     // MARK: - Private methods
     private func congigUI() {
-        view.backgroundColor = .black
+        view.backgroundColor = .white
     }
 }

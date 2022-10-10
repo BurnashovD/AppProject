@@ -26,6 +26,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var firstImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 50, y: 0, width: 300, height: 200)
+        image.isUserInteractionEnabled = true
         return image
     }()
     
@@ -145,6 +146,7 @@ final class ChosenItemViewController: UIViewController {
         label.text = Constants.deliveryVariantsText
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .link
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -178,6 +180,7 @@ final class ChosenItemViewController: UIViewController {
     private let countPickerView = UIPickerView()
     private let howMuchProductsNumbers = Array(1...12)
     private lazy var goToProductWebPage = UITapGestureRecognizer(target: self, action: #selector(openProductWebVC))
+    private lazy var openPDF = UITapGestureRecognizer(target: self, action: #selector(openPDFPageAction))
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -202,7 +205,8 @@ final class ChosenItemViewController: UIViewController {
         view.addSubview(deliverVariantsLabel)
         view.addSubview(boxDeliveryImageView)
         view.addSubview(howMuchTextField)
-        chooseProductColorGrayButton.addGestureRecognizer(goToProductWebPage)
+        firstImageView.addGestureRecognizer(goToProductWebPage)
+        deliverVariantsLabel.addGestureRecognizer(openPDF)
         countPickerView.dataSource = self
         countPickerView.delegate = self
         howMuchTextField.inputView = countPickerView
@@ -230,10 +234,10 @@ final class ChosenItemViewController: UIViewController {
     }
     
     private func addNavigationItems() {
-        let shareButton = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"),
+        let shareButton = UIBarButtonItem(image: UIImage(systemName: Constants.shareImageName),
                                           style: .done, target: self,
                                           action: #selector(openActivityControllerAction))
-        let likeButton = UIBarButtonItem(image: UIImage(systemName: "heart"),
+        let likeButton = UIBarButtonItem(image: UIImage(systemName: Constants.heartImageName),
                                          style: .done, target: self,
                                          action: #selector(addToFavoriteAction))
         
@@ -252,6 +256,14 @@ final class ChosenItemViewController: UIViewController {
     
     @objc private func openProductWebVC() {
         let productWebVC = ProductWebPageViewController()
+        productWebVC.productsURL = productURL
+        productWebVC.webType = "web"
+        present(productWebVC, animated: true)
+    }
+    
+    @objc private func openPDFPageAction() {
+        let productWebVC = ProductWebPageViewController()
+        productWebVC.webType = "pdf"
         present(productWebVC, animated: true)
     }
 }
@@ -265,6 +277,8 @@ extension ChosenItemViewController {
         static let delivaryDateText = "Чт 25 Фев - Бесплатно"
         static let deliveryVariantsText = "Варианты доставки для месторасположения: 115533"
         static let sistemBoxImageName = "shippingbox.fill"
+        static let heartImageName = "heart"
+        static let shareImageName = "square.and.arrow.up"
     }
 }
 
