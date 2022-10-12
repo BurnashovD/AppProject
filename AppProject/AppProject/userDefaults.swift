@@ -7,7 +7,7 @@
 
 import Foundation
 
-class userDef {
+class UserDef {
     
     static var shared = userDef()
     
