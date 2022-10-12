@@ -192,7 +192,7 @@ final class ForMeViewController: UIViewController {
     }()
 
     // MARK: - Private properties
-    private let image = UIImage(systemName: Constants.personImageName)?.resieImage(to: CGSize(width: 30, height: 30))
+    private let image = UIImage(systemName: Constants.personImageName)?.resieImage(to: CGSize(width: 40, height: 40))
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -287,8 +287,8 @@ extension ForMeViewController {
 // MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension ForMeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.editedImage] as? UIImage {
-            let img = image.resieImage(to: CGSize(width: 70, height: 70))
+        if let image = info[.originalImage] as? UIImage {
+            let img = image.resieImage(to: CGSize(width: 40, height: 40))
             profileImageButton.setImage(img, for: .normal)
         
             guard let dataImage = img.pngData() else { return }
