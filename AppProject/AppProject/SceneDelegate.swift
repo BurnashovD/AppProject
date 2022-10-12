@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainTBVC = MainTabBarViewController()
 
         let tabBarVC = UITabBarController()
-
+        
+        tabBarVC.tabBar.unselectedItemTintColor = .gray
         tabBarVC.setViewControllers(mainTBVC.viewControllers, animated: true)
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()

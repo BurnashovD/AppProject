@@ -21,7 +21,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var recentlyCheckedLabel: UILabel = {
+    private var recentlyCheckedLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 20, y: 170, width: 280, height: 50)
         label.textColor = .white
@@ -30,7 +30,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var clearSearchButton: UIButton = {
+    private var clearSearchButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 285, y: 180, width: 100, height: 30)
         button.setTitle(Constants.deleteText, for: .normal)
@@ -38,7 +38,7 @@ final class SearchViewController: UIViewController {
         return button
     }()
     
-    private lazy var searchControll: UISearchController = {
+    private var searchControll: UISearchController = {
         let search = UISearchController()
         search.searchBar.frame = CGRect(x: 50, y: 50, width: 200, height: 40)
         return search
@@ -74,7 +74,7 @@ final class SearchViewController: UIViewController {
         return view
     }()
     
-    private lazy var searchVariantsLabel: UILabel = {
+    private var searchVariantsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 20, y: 430, width: 280, height: 30)
         label.textColor = .white
@@ -83,7 +83,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var airPodsLabel: UIButton = {
+    private var airPodsLabel: UIButton = {
         let label = UIButton()
         label.frame = CGRect(x: 10, y: 480, width: 150, height: 30)
         label.setTitle(Constants.airPodsText, for: .normal)
@@ -92,7 +92,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var appleCareLabel: UIButton = {
+    private var appleCareLabel: UIButton = {
         let label = UIButton()
         label.frame = CGRect(x: 20, y: 530, width: 150, height: 30)
         label.setTitle(Constants.appleCareText, for: .normal)
@@ -101,7 +101,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var beatsLabel: UIButton = {
+    private var beatsLabel: UIButton = {
         let label = UIButton()
         label.frame = CGRect(x: 2, y: 580, width: 150, height: 30)
         label.setTitle(Constants.beatsText, for: .normal)
@@ -110,7 +110,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var iphoneLabel: UIButton = {
+    private var iphoneLabel: UIButton = {
         let label = UIButton()
         label.frame = CGRect(x: 35, y: 630, width: 250, height: 30)
         label.setTitle(Constants.iphoneText, for: .normal)
@@ -119,7 +119,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var blackCaseNameLabel: UILabel = {
+    private var blackCaseNameLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 7, y: 65, width: 120, height: 150)
         label.text = Constants.blackCaseNameText
@@ -130,7 +130,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var watchNameLabel: UILabel = {
+    private var watchNameLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 7, y: 65, width: 120, height: 150)
         label.text = Constants.watchNameText
@@ -141,7 +141,7 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var brownCaseLabel: UILabel = {
+    private var brownCaseLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 7, y: 65, width: 120, height: 150)
         label.text = Constants.brownCaseText
@@ -152,21 +152,21 @@ final class SearchViewController: UIViewController {
         return label
     }()
     
-    private lazy var blackCaseImageView: UIImageView = {
+    private var blackCaseImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 15, y: 15, width: 90, height: 70)
         image.image = UIImage(named: Constants.blackCaseImage[0])
         return image
     }()
     
-    private lazy var watchImageView: UIImageView = {
+    private var watchImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 28, y: 15, width: 60, height: 80)
         image.image = UIImage(named: Constants.watchImage[0])
         return image
     }()
     
-    private lazy var brownCaseImageView: UIImageView = {
+    private var brownCaseImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 10, y: 0, width: 100, height: 100)
         image.image = UIImage(named: Constants.brownCaseImage[2])

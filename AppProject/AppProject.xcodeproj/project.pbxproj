@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A591CB4428F4498D000F0696 /* ProductWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591CB4328F4498D000F0696 /* ProductWebPageViewController.swift */; };
+		A591CB4628F487C2000F0696 /* HW.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A591CB4528F487C2000F0696 /* HW.pdf */; };
 		A5C5C93328F1B36A001FB954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C93228F1B36A001FB954 /* AppDelegate.swift */; };
 		A5C5C93528F1B36A001FB954 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C93428F1B36A001FB954 /* SceneDelegate.swift */; };
 		A5C5C93A28F1B36A001FB954 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5C5C93828F1B36A001FB954 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		A591CB4328F4498D000F0696 /* ProductWebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebPageViewController.swift; sourceTree = "<group>"; };
+		A591CB4528F487C2000F0696 /* HW.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HW.pdf; sourceTree = "<group>"; };
 		A5C5C92F28F1B36A001FB954 /* AppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C5C93228F1B36A001FB954 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5C5C93428F1B36A001FB954 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				A5C5C96E28F1B58F001FB954 /* TabBar */,
 				A5C5C93828F1B36A001FB954 /* Main.storyboard */,
 				A5C5C93B28F1B36C001FB954 /* Assets.xcassets */,
+				A591CB4528F487C2000F0696 /* HW.pdf */,
 				A5C5C93D28F1B36C001FB954 /* LaunchScreen.storyboard */,
 				A5C5C94028F1B36C001FB954 /* Info.plist */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C5C93F28F1B36C001FB954 /* LaunchScreen.storyboard in Resources */,
+				A591CB4628F487C2000F0696 /* HW.pdf in Resources */,
 				A5C5C93C28F1B36C001FB954 /* Assets.xcassets in Resources */,
 				A5C5C93A28F1B36A001FB954 /* Main.storyboard in Resources */,
 			);
