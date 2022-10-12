@@ -19,6 +19,5 @@ final class CartViewController: UIViewController {
     // MARK: - Private methods
     private func configUI() {
         view.backgroundColor = .black
-
     }
 }
