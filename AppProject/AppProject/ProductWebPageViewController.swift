@@ -18,6 +18,13 @@ final class ProductWebPageViewController: UIViewController {
         return web
     }()
     
+    private lazy var pageLoadProgressView: UIProgressView = {
+        let progress = UIProgressView()
+        progress.progressTintColor = .link
+        progress.frame = CGRect(x: 0, y: 720, width: 390, height: 30)
+        return progress
+    }()
+    
     // MARK: - Public properties
     var productsURL = ""
     var webType = ""
@@ -27,6 +34,13 @@ final class ProductWebPageViewController: UIViewController {
         super.viewDidLoad()
         configWeb()
     }
+    
+    // MARK: - Public methods
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+            if keyPath == "estimatedProgress" {
+                pageLoadProgressView.progress = Float(productWebView.estimatedProgress)
+    }
+}
     
     // MARK: - Private methods
     private func configWeb() {
@@ -43,7 +57,10 @@ final class ProductWebPageViewController: UIViewController {
             productWebView.addSubview(addToolBar())
             view = productWebView
         }
-    }
+        view.addSubview(pageLoadProgressView)
+        productWebView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress),
+                                   options: .new, context: nil)
+}
 
     private func addToolBar() -> UIToolbar {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 720, width: view.frame.size.width, height: 50))
