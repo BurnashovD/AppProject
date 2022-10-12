@@ -18,7 +18,7 @@ final class ProductWebPageViewController: UIViewController {
         return web
     }()
     
-    private lazy var pageLoadProgressView: UIProgressView = {
+    private var pageLoadProgressView: UIProgressView = {
         let progress = UIProgressView()
         progress.progressTintColor = .link
         progress.frame = CGRect(x: 0, y: 720, width: 390, height: 30)
@@ -26,7 +26,7 @@ final class ProductWebPageViewController: UIViewController {
     }()
     
     // MARK: - Public properties
-    var productsURL = ""
+    var productsURLName = ""
     var webType = ""
 
     // MARK: - LifeCycle
@@ -37,21 +37,21 @@ final class ProductWebPageViewController: UIViewController {
     
     // MARK: - Public methods
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-            if keyPath == "estimatedProgress" {
+        if keyPath == Constants.estimatedProgress {
                 pageLoadProgressView.progress = Float(productWebView.estimatedProgress)
     }
 }
     
     // MARK: - Private methods
     private func configWeb() {
-        if webType == "web" {
-            guard let productURL = URL(string: productsURL) else { return }
+        if webType == Constants.webPage {
+            guard let productURL = URL(string: productsURLName) else { return }
             let productRequest = URLRequest(url: productURL)
             productWebView.load(productRequest)
             productWebView.addSubview(addToolBar())
             view = productWebView
-        } else if webType == "pdf" {
-            guard let pdfURL = Bundle.main.url(forResource: "HW", withExtension: "pdf") else { return }
+        } else if webType == Constants.pdfPage {
+            guard let pdfURL = Bundle.main.url(forResource: "HW", withExtension: Constants.pdfPage) else { return }
             let productRequest = URLRequest(url: pdfURL)
             productWebView.load(productRequest)
             productWebView.addSubview(addToolBar())
@@ -118,7 +118,7 @@ final class ProductWebPageViewController: UIViewController {
     }
     
     @objc private func shareLinkAction() {
-        let activityController = UIActivityViewController(activityItems: [productsURL], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: [productsURLName], applicationActivities: nil)
         present(activityController, animated: true)
     }
 }
@@ -128,5 +128,8 @@ extension ProductWebPageViewController {
         static let chevronForwadrImageName = "chevron.forward"
         static let chevronBackwardmageName = "chevron.backward"
         static let reStoreLink = "re-store.ru"
+        static let webPage = "web"
+        static let pdfPage = "pdf"
+        static let estimatedProgress = "estimatedProgress"
     }
 }

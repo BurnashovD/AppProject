@@ -11,7 +11,7 @@ import UIKit
 final class ForMeViewController: UIViewController {
     
     //MARK: - Visual components
-    private lazy var somethingNewLabel: UILabel = {
+    private var somethingNewLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 18, y: 180, width: 250, height: 30)
         label.text = Constants.somethingNewText
@@ -32,7 +32,7 @@ final class ForMeViewController: UIViewController {
         return uiView
     }()
     
-    private lazy var recomendedForYouLabel: UILabel = {
+    private var recomendedForYouLabel: UILabel = {
         let lable = UILabel()
         lable.frame = CGRect(x: 18, y: 470, width: 250, height: 40)
         lable.text = Constants.recomendedForYouText
@@ -46,7 +46,7 @@ final class ForMeViewController: UIViewController {
         return uiView
     }()
     
-    private lazy var getNewsLabel: UILabel = {
+    private var getNewsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 90, y: 7, width: 220, height: 100)
         label.numberOfLines = 3
@@ -56,7 +56,7 @@ final class ForMeViewController: UIViewController {
         return label
     }()
     
-    private lazy var appBadgeImageView: UIImageView = {
+    private var appBadgeImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: Constants.appBadgeImageName)
         imageView.frame = CGRect(x: 25, y: 30, width: 40, height: 40)
@@ -75,7 +75,7 @@ final class ForMeViewController: UIViewController {
         return scroll
     }()
     
-    private lazy var turnOnNotifyLabel: UILabel = {
+    private var turnOnNotifyLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.turnOnNotifyText
         label.frame = CGRect(x: 90, y: 75, width: 260, height: 50)
@@ -116,7 +116,7 @@ final class ForMeViewController: UIViewController {
         return button
     }()
     
-    private lazy var airPodsImageView: UIImageView = {
+    private var airPodsImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: Constants.airPodsImageName))
         imageView.frame = CGRect(x: 15, y: 10, width: 70, height: 70)
         return imageView
@@ -149,7 +149,7 @@ final class ForMeViewController: UIViewController {
         return label
     }()
     
-    private lazy var airPodsDeliveryStatusLabel: UILabel = {
+    private var airPodsDeliveryStatusLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.deliveryStatusText
         label.textColor = .black
@@ -158,7 +158,7 @@ final class ForMeViewController: UIViewController {
         return label
     }()
     
-    private lazy var aboutDeliveryLabel: UILabel = {
+    private var aboutDeliveryLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.aboutDeliveryText
         label.frame = CGRect(x: 95, y: 40, width: 200, height: 30)
@@ -167,7 +167,7 @@ final class ForMeViewController: UIViewController {
         return label
     }()
     
-    private lazy var forwardImageView: UIImageView = {
+    private var forwardImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(systemName: Constants.chevronForwardImageName))
         imageView.frame = CGRect(x: 320, y: 40, width: 15, height: 15)
         imageView.tintColor = .lightGray
@@ -181,7 +181,7 @@ final class ForMeViewController: UIViewController {
         return uiView
     }()
     
-    private lazy var profileImageButton: UIButton = {
+    private var profileImageButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         button.layer.cornerRadius = 15
         button.clipsToBounds = true
@@ -218,12 +218,14 @@ final class ForMeViewController: UIViewController {
         checkUserDef()
         airPodsViewConfig()
     }
+    
     private func getNewsViewConfig() {
         getNewsView.addSubview(getNewsLabel)
         getNewsView.addSubview(appBadgeImageView)
         getNewsView.addSubview(turnOnNotifyLabel)
         getNewsView.addSubview(nextPageImageView)
     }
+    
     private func airPodsViewConfig() {
         airPodsView.addSubview(airPodsImageView)
         airPodsView.addSubview(lineUnderAirPodsView)

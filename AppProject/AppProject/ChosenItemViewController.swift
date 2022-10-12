@@ -23,7 +23,7 @@ final class ChosenItemViewController: UIViewController {
         return label
     }()
     
-    private lazy var firstImageView: UIImageView = {
+    private var firstImageView: UIImageView = {
         let image = UIImageView()
         image.frame = CGRect(x: 50, y: 0, width: 300, height: 200)
         image.isUserInteractionEnabled = true
@@ -83,7 +83,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var chooseProductColorGrayButton: UIButton = {
         let second = UIButton()
         second.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        second.center = CGPoint(x: view.center.x - 22, y: 500)
+        second.center = CGPoint(x: self.view.center.x - 22, y: 500)
         second.backgroundColor = .lightGray
         second.layer.cornerRadius = 0.5 * second.bounds.size.width
         return second
@@ -92,7 +92,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var chooseProductColorBlackButton: UIButton = {
         let first = UIButton()
         first.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        first.center = CGPoint(x: view.center.x + 22, y: 500)
+        first.center = CGPoint(x: self.view.center.x + 22, y: 500)
         first.backgroundColor = UIColor(red: 0.12, green: 0.12, blue: 0.12, alpha: 0.90)
         first.layer.cornerRadius = 0.5 * first.bounds.size.width
         first.layer.borderColor = UIColor.link.cgColor
@@ -103,7 +103,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var deviceConnectionLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: 220, height: 20)
-        label.center = CGPoint(x: view.center.x, y: 570)
+        label.center = CGPoint(x: self.view.center.x, y: 570)
         label.text = Constants.deviceConnectionText
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 9, weight: .medium)
@@ -114,7 +114,7 @@ final class ChosenItemViewController: UIViewController {
     private lazy var addToCartButton: UIButton = {
         let button = UIButton()
         button.frame = CGRect(x: 0, y: 0, width: view.bounds.width - 30, height: 45)
-        button.center = CGPoint(x: view.center.x, y: 660)
+        button.center = CGPoint(x: self.view.center.x, y: 660)
         button.setTitle(Constants.addToCartText, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.backgroundColor = UIColor(red: 0.07, green: 0.45, blue: 0.87, alpha: 0.90)
@@ -122,7 +122,7 @@ final class ChosenItemViewController: UIViewController {
         return button
     }()
     
-    private lazy var deliverLabel: UILabel = {
+    private var deliverLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 40, y: 710, width: 250, height: 10)
         label.text = Constants.deliveryText
@@ -131,7 +131,7 @@ final class ChosenItemViewController: UIViewController {
         return label
     }()
     
-    private lazy var deliverDateLabel: UILabel = {
+    private var deliverDateLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 40, y: 725, width: 250, height: 10)
         label.text = Constants.delivaryDateText
@@ -140,7 +140,7 @@ final class ChosenItemViewController: UIViewController {
         return label
     }()
     
-    private lazy var deliverVariantsLabel: UILabel = {
+    private var deliverVariantsLabel: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 40, y: 740, width: 350, height: 10)
         label.text = Constants.deliveryVariantsText
@@ -150,7 +150,7 @@ final class ChosenItemViewController: UIViewController {
         return label
     }()
     
-    private lazy var boxDeliveryImageView: UIImageView = {
+    private var boxDeliveryImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: Constants.sistemBoxImageName)
         image.frame = CGRect(x: 10, y: 710, width: 20, height: 20)
@@ -256,7 +256,7 @@ final class ChosenItemViewController: UIViewController {
     
     @objc private func openProductWebVC() {
         let productWebVC = ProductWebPageViewController()
-        productWebVC.productsURL = productURL
+        productWebVC.productsURLName = productURL
         productWebVC.webType = "web"
         present(productWebVC, animated: true)
     }
