@@ -22,6 +22,7 @@ final class MainTabBarViewController: UITabBarController {
         let searchVC = SearchViewController()
         let forMeVC = ForMeViewController()
         let cartVC = CartViewController()
+        let pageVC = PageViewController()
         
         buyVC.tabBarItem = UITabBarItem(title: Constants.buyTitleText,
                                         image: UIImage(systemName: Constants.laptopIphoneImageName),
@@ -34,7 +35,7 @@ final class MainTabBarViewController: UITabBarController {
         forMeVC.tabBarItem = UITabBarItem(title: Constants.forYouText,
                                           image: UIImage(systemName: Constants.personCircleImageName),
                                           tag: 1)
-        forMeVC.title = "Для вас"
+        forMeVC.title = Constants.forYouText
 
         cartVC.tabBarItem = UITabBarItem(title: Constants.cartText,
                                          image: UIImage(systemName: Constants.bagImageName),
@@ -56,7 +57,7 @@ extension MainTabBarViewController {
         static let laptopIphoneImageName = "laptopcomputer.and.iphone"
         static let searchText = "Поиск"
         static let magnifyImageName = "magnifyingglass"
-        static let forYouText = "Для Вас"
+        static let forYouText = "Для вас"
         static let personCircleImageName = "person.circle"
         static let cartText = "Коризна"
         static let bagImageName = "bag"

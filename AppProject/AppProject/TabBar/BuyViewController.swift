@@ -15,9 +15,10 @@ final class BuyViewController: UIViewController {
         super.viewDidLoad()
         configUI()
     }
-    
     // MARK: - Private methods
     private func configUI() {
         view.backgroundColor = .black
     }
 }
+
+

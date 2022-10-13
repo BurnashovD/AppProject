@@ -16,6 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard scene as? UIWindowScene != nil else { return }
                 
         let mainTBVC = MainTabBarViewController()
+        let pageVC = PageViewController()
+        let userDef = UserDefaults.standard
+        let complete = userDef.string(forKey: "check")
 
         let tabBarVC = UITabBarController()
         
@@ -23,6 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBarVC.setViewControllers(mainTBVC.viewControllers, animated: true)
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
+        
+        if complete != "complete" {
+            tabBarVC.show(pageVC, sender: self)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
