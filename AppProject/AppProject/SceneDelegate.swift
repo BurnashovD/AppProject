@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let mainTBVC = MainTabBarViewController()
         let pageVC = PageViewController()
         let userDef = UserDefaults.standard
-        let complete = userDef.string(forKey: "check")
+        let complete = userDef.string(forKey: "")
 
         let tabBarVC = UITabBarController()
         
@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
         
-        if complete != "complete" {
+        if complete != "" {
             tabBarVC.show(pageVC, sender: self)
         }
     }

@@ -69,6 +69,7 @@ final class ThirdOnboardViewController: UIViewController {
     }
 }
 
+// Constants enum
 extension ThirdOnboardViewController {
     enum Constants {
         static let imageName = "page3"

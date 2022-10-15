@@ -27,9 +27,9 @@ final class PageViewController: UIPageViewController {
     // MARK: - init PageVC
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal)
-        self.view.backgroundColor = .white
-        self.dataSource = self
-        self.delegate = self
+        view.backgroundColor = .white
+        dataSource = self
+        delegate = self
         setViewControllers([pageViewControllers[0]], direction: .forward, animated: true)
     }
     
@@ -84,7 +84,13 @@ extension PageViewController {
 extension PageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let vc = viewController as? UIViewController else { return nil }
+        guard
+            let vc = viewController as? UIViewController,
+            let index = pageViewControllers.firstIndex(of: vc),
+            index > 0
+                else {
+                   return nil
+        }
         if let index = pageViewControllers.firstIndex(of: vc) {
             if index > 0 {
                 return pageViewControllers[index - 1]
@@ -94,7 +100,13 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let vc = viewController as? UIViewController else { return nil }
+        guard
+            let vc = viewController as? UIViewController,
+            let index = pageViewControllers.firstIndex(of: vc),
+            index > 0
+                else {
+                   return nil
+        }
         if let index = pageViewControllers.firstIndex(of: vc) {
             if index < pageViewControllers.count - 1 {
                 return pageViewControllers[index + 1]
@@ -109,7 +121,7 @@ extension PageViewController: UIPageViewControllerDelegate, UIPageViewController
         let thirdLabel = thirdOnboardVC.pageTextLabel
         
         let userDef = UserDefaults.standard
-        userDef.set("complete", forKey: "check")
+        userDef.set("", forKey: "")
         
         UILabel.animate(withDuration: 0.1) {
             firstLabel.alpha = 1
