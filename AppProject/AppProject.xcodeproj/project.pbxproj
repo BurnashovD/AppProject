@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A56E6F2128F86E8C00CEC46E /* FirstOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E6F2028F86E8C00CEC46E /* FirstOnboardViewController.swift */; };
+		A56E6F2328F86E9600CEC46E /* SecondOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E6F2228F86E9600CEC46E /* SecondOnboardViewController.swift */; };
+		A56E6F2528F86EA100CEC46E /* ThirdOnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E6F2428F86EA100CEC46E /* ThirdOnboardViewController.swift */; };
+		A56E6F2728F86EB000CEC46E /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E6F2628F86EB000CEC46E /* PageViewController.swift */; };
 		A591CB4428F4498D000F0696 /* ProductWebPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A591CB4328F4498D000F0696 /* ProductWebPageViewController.swift */; };
 		A591CB4628F487C2000F0696 /* HW.pdf in Resources */ = {isa = PBXBuildFile; fileRef = A591CB4528F487C2000F0696 /* HW.pdf */; };
 		A5C5C93328F1B36A001FB954 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C5C93228F1B36A001FB954 /* AppDelegate.swift */; };
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A56E6F2028F86E8C00CEC46E /* FirstOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstOnboardViewController.swift; sourceTree = "<group>"; };
+		A56E6F2228F86E9600CEC46E /* SecondOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOnboardViewController.swift; sourceTree = "<group>"; };
+		A56E6F2428F86EA100CEC46E /* ThirdOnboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdOnboardViewController.swift; sourceTree = "<group>"; };
+		A56E6F2628F86EB000CEC46E /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		A591CB4328F4498D000F0696 /* ProductWebPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWebPageViewController.swift; sourceTree = "<group>"; };
 		A591CB4528F487C2000F0696 /* HW.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = HW.pdf; sourceTree = "<group>"; };
 		A5C5C92F28F1B36A001FB954 /* AppProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +98,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5162A1328F71D35005A7B02 /* PageVC */ = {
+			isa = PBXGroup;
+			children = (
+				A56E6F2628F86EB000CEC46E /* PageViewController.swift */,
+				A56E6F2028F86E8C00CEC46E /* FirstOnboardViewController.swift */,
+				A56E6F2228F86E9600CEC46E /* SecondOnboardViewController.swift */,
+				A56E6F2428F86EA100CEC46E /* ThirdOnboardViewController.swift */,
+			);
+			path = PageVC;
+			sourceTree = "<group>";
+		};
 		A5C5C92628F1B36A001FB954 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +136,7 @@
 				A5C5C93428F1B36A001FB954 /* SceneDelegate.swift */,
 				A591CB4328F4498D000F0696 /* ProductWebPageViewController.swift */,
 				A5C5C96228F1B43D001FB954 /* ChosenItemViewController.swift */,
+				A5162A1328F71D35005A7B02 /* PageVC */,
 				A5C5C96E28F1B58F001FB954 /* TabBar */,
 				A5C5C93828F1B36A001FB954 /* Main.storyboard */,
 				A5C5C93B28F1B36C001FB954 /* Assets.xcassets */,
@@ -289,11 +309,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C5C96528F1B470001FB954 /* MainTabBarViewController.swift in Sources */,
+				A56E6F2728F86EB000CEC46E /* PageViewController.swift in Sources */,
 				A5C5C96928F1B4B5001FB954 /* SearchViewController.swift in Sources */,
 				A5C5C93328F1B36A001FB954 /* AppDelegate.swift in Sources */,
+				A56E6F2128F86E8C00CEC46E /* FirstOnboardViewController.swift in Sources */,
 				A5C5C96B28F1B4CF001FB954 /* ForMeViewController.swift in Sources */,
 				A591CB4428F4498D000F0696 /* ProductWebPageViewController.swift in Sources */,
+				A56E6F2528F86EA100CEC46E /* ThirdOnboardViewController.swift in Sources */,
 				A5C5C93528F1B36A001FB954 /* SceneDelegate.swift in Sources */,
+				A56E6F2328F86E9600CEC46E /* SecondOnboardViewController.swift in Sources */,
 				A5C5C96328F1B43D001FB954 /* ChosenItemViewController.swift in Sources */,
 				A5C5C96D28F1B4E3001FB954 /* CartViewController.swift in Sources */,
 				A5C5C96728F1B49C001FB954 /* BuyViewController.swift in Sources */,
